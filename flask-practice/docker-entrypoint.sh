@@ -1,8 +1,13 @@
 #!/bin/sh
 
+echo "Running db init"
+# flask db stamp head
+flask db init
 
-echo "Running migrations"
+echo "Running db migrate"
+flask db migrate
 
+echo "Running db upgrade"
 flask db upgrade
 
 echo "Running flask server"

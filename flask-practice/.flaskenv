@@ -1,3 +1,7 @@
-FLASK_APP=wsgi.py
+FLASK_APP='wsgi.py'
 SQLALCHEMY_TRACK_MODIFICATIONS=False
-SECRET_KEY=mysecretkey
+MYSQL_HOST = 'mysql-db'
+MYSQL_USER = 'root'
+MYSQL_DB = 'flaskdjango'
+MYSQL_PORT = '3306'
+SECRET_KEY='mysecretkey'

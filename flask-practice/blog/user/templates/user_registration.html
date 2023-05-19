@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.username.label }} {{ form.username }}
+
+            {% for error in form.username.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            <br>
+        </p>
+        
+        <p>
+            {{ form.password.label }} {{ form.password }}
+
+            {% for error in form.password.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            <br>
+        </p>
+
+        <p>
+            {{ form.password2.label }} {{ form.password2 }}
+
+            {% for error in form.password2.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            <br>
+        </p>
+
+        <p>
+            {{ form.submit() }}
+        </p>
+    </form>
+</h1>
+{% endblock %}
