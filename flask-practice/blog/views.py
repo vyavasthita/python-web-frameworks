@@ -1,7 +1,8 @@
 from flask import render_template
-from blog import app
+from flask.blueprints import Blueprint
 
 
-@app.route("/")
+root_blueprint = Blueprint('root', __name__)
+@root_blueprint.route("/")
 def root():
     return render_template('index.html')
