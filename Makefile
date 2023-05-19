@@ -1,22 +1,24 @@
-all: clean stop pp
-
-clean:
-	echo "Cleaning"
+all: stop clean pp run
 
 stop:
 	echo "Stopping Containers"
 	docker compose down
 
+clean:
+	echo "Cleaning"
+	docker container prune -f
+	docker image prune -f
+
 pp:
 	echo "Activating virtual environment"
-	source flask-practice/flaskvenv/bin/activate
+	. flask-practice/flaskvenv/bin/activate
 
 	echo "Updating requirements.txt"
-	pip freeze > flask-practice/requirements.txt
+	flask-practice/flaskvenv/bin/pip freeze > flask-practice/requirements.txt
 
 	echo "Deactivating virtual environment"
-	source deactivate
+	# . flask-practice/flaskvenv/bin/deactivate
 
 run:
 	echo "Running Containers"
-	docker compose up --build --remove-orphans
+	docker compose up -d --build --remove-orphans

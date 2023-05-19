@@ -1,5 +1,5 @@
-from ...blog import db
-from ...blog.user.models import UserModel
+from blog import db
+from blog.user.models import UserModel
 
 
 class UserDao:
