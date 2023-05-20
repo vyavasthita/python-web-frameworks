@@ -8,8 +8,8 @@ clean:
 	docker image prune -f
 
 pp:
-	. flask-practice/flaskvenv/bin/activate
-	flask-practice/flaskvenv/bin/pip freeze > flask-practice/requirements.txt
+	. django-practice/djangovenv/bin/activate
+	django-practice/djangovenv/bin/pip freeze > django-practice/requirements.txt
 
 run:
 	docker compose up -d --build --remove-orphans
