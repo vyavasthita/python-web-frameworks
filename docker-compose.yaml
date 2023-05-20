@@ -45,5 +45,7 @@ services:
     depends_on:
       mysql-db:
         condition: service_healthy
+    # volumes:
+    #   - ./flask-practice:/app
 networks:
   mysql-connection:

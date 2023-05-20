@@ -1,22 +1,28 @@
 from blog import db
-from blog.user.models import UserRegistration
+from blog.user.models import User
+from blog import login
 
 
 class UserDao:
+    @login.user_loader
+    def load_user(id):
+        return user_dao.get_user_by_id(id)
+
     def get_all_users(self):
-        return UserRegistration.query.all()
+        return User.query.all()
     
     def register_user(self, name: str, username: str, password: str):
-        user = UserRegistration(name, username, password)
+        user = User(name, username, password)
         db.session.add(user)
         db.session.commit()
 
     def check_user_exists(self, username: str):
-        user = UserRegistration.query.filter_by(username=username).first()
-
-        return True if user is not None else False
+        return True if User.query.filter_by(username=username).first() is not None else False
     
     def get_user(self, username: str):
-        return UserRegistration.query.filter_by(username=username).first()
+        return User.query.filter_by(username=username).first()
+    
+    def get_user_by_id(self, id):
+        return User.query.get(int(id))
 
 user_dao = UserDao()

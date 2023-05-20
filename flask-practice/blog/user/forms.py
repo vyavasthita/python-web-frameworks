@@ -4,7 +4,7 @@ from wtforms import StringField, SubmitField, PasswordField
 from .dao import user_dao
 
 
-class UserRegistration(FlaskForm):
+class RegistrationForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
@@ -16,7 +16,7 @@ class UserRegistration(FlaskForm):
             raise ValidationError('User is already registered. Please use a different username.')
 
 
-class UserLogin(FlaskForm):
+class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Save')

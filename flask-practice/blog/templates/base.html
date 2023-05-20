@@ -32,8 +32,12 @@
                       Dropdown
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="{{ url_for('user.sign_in')}}">Sign In</a></li>
-                      <li><a class="dropdown-item" href="{{ url_for('user.sign_up')}}">Sign Up</a></li>
+                      <li><a class="dropdown-item" href="{{ url_for('user.register')}}">Register</a></li>
+                      {% if current_user.is_anonymous %}
+                        <li><a class="dropdown-item" href="{{ url_for('user.login')}}">Login</a></li>
+                      {% else %}                    
+                      <li><a class="dropdown-item" href="{{ url_for('user.logout')}}">Logout</a></li>
+                      {% endif %}
                       <li><hr class="dropdown-divider"></li>
                       <li><a class="dropdown-item" href="{{ url_for('user.list_users')}}">List Users</a></li>
                     </ul>
