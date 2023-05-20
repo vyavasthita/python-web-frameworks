@@ -45,13 +45,25 @@ services:
   #   depends_on:
   #     mysql-db:
   #       condition: service_healthy
-  django_practice:
-    build: ./django-practice
-    container_name: django_practice
+  # django_practice:
+  #   build: ./django-practice
+  #   container_name: django_practice
+  #   env_file:
+  #     - ./django-practice/.djangoenv
+  #   ports:
+  #     - 5002:5002
+  #   networks: 
+  #     - mysql-connection
+  #   depends_on:
+  #     mysql-db:
+  #       condition: service_healthy
+  fastapi_practice:
+    build: ./fastapi-practice
+    container_name: fastapi_practice
     env_file:
-      - ./django-practice/.djangoenv
+      - ./fastapi-practice/.fastapienv
     ports:
-      - 5002:5002
+      - 5003:5003
     networks: 
       - mysql-connection
     depends_on:

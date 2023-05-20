@@ -8,8 +8,8 @@ clean:
 	docker image prune -f
 
 pp:
-	. django-practice/djangovenv/bin/activate
-	django-practice/djangovenv/bin/pip freeze > django-practice/requirements.txt
+	. fastapi-practice/fastapivenv/bin/activate
+	fastapi-practice/fastapivenv/bin/pip freeze > fastapi-practice/requirements.txt
 
 run:
 	docker compose up -d --build --remove-orphans
