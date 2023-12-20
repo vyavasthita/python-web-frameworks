@@ -12,6 +12,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 RUN pip install mysqlclient
 
+COPY ./routers /app/routers
 COPY *.py .
 
 ARG API_HOST
